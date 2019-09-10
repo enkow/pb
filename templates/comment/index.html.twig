@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Test list
+{% endblock %}
+{% block body %}
+    <h1>Test list</h1>
+    {% if pagination is defined and pagination|length %}
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Tags</th>
+                <th scope="col">
+                    Actions
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in pagination %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.password }}</td>
+                    <td>{{ user.name }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    {% else %}
+        <p>
+            Empty list.
+        </p>
+    {% endif %}
+
+{% endblock  %}
